@@ -1,3 +1,25 @@
+"""
+Word List Encryption Utility
+-----------------------------
+This script encrypts a plain text word list for use with the Password Generator.
+The security of the generated passwords comes from the generation algorithm,
+not the secrecy of the word list itself.
+
+Usage:
+    python encrypt_words.py              # Encrypt words.csv using existing or new key
+    python encrypt_words.py --new-key    # Force generation of a new encryption key
+
+Input:
+    words.csv -- plain text word list, one word per line or comma separated
+
+Output:
+    encrypted_words.csv -- encrypted word list for use with the Password Generator
+    key.key             -- encryption key required by the Password Generator
+
+Note: If you regenerate with --new-key you must use the new key.key alongside
+the new encrypted_words.csv. The old key will not work with the new encrypted list.
+"""
+
 from cryptography.fernet import Fernet
 from pathlib import Path
 import csv
